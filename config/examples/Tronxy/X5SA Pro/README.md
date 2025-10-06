@@ -19,7 +19,7 @@
 ## See X5SA Readme
 
 For general information about the X5SA printer and its predecessor, see the
-[X5SA Readme on GitHub](https://github.com/MarlinFirmware/Configurations/tree/import-2.1.x/config/examples/Tronxy/X5SA).
+[X5SA Readme on GitHub](//github.com/MarlinFirmware/Configurations/tree/import-2.1.x/config/examples/Tronxy/X5SA).
 
 ---
 
@@ -40,7 +40,7 @@ Dumping your current settings can help you determine values such as steps/mm for
 3. The printer will do nothing—just wait a few seconds and then stop the print.
 4. Your settings will be stored in `currentconfig.gcode`.
 
-For more information, see [this guide](https://www.facebook.com/notes/tronxy-turnigy-x5s-x5sa-x3s-3d-printer-drucker-users/tronxy-firmware-configuration-guide-by-keith-varin-addermk264bit-tuning/649799805579765/).
+For more information, see [this guide](//www.facebook.com/notes/tronxy-turnigy-x5s-x5sa-x3s-3d-printer-drucker-users/tronxy-firmware-configuration-guide-by-keith-varin-addermk264bit-tuning/649799805579765/).
 
 ### Backup Your Chitu Firmware (Optional, but Strongly Recommended)
 
@@ -165,7 +165,7 @@ This method is no longer recommended. If you must use it:
 
 ## Known Issues
 
-The pull request [28059](https://github.com/MarlinFirmware/Marlin/pull/28059) has not yet merged. Until it does, you must manually override the Z‑stop pin in `pins_CHITU3D_V6.h` because the CXY‑V6‑191017 board uses PG9 instead of PA14.
+The pull request [28059](//github.com/MarlinFirmware/Marlin/pull/28059) has not yet merged. Until it does, you must manually override the Z‑stop pin in `pins_CHITU3D_V6.h` because the CXY‑V6‑191017 board uses PG9 instead of PA14.
 
 In `pins_CHITU3D_V6.h` replace:
 
