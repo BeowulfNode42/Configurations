@@ -3,6 +3,7 @@
 - [General X5SA Series Info](#general-x5sa-series-info)
 - [Configure Marlin for Your Printer](#configure-marlin-for-your-printer)
   - [Motherboard CXY‑V6‑191017](#motherboard-cxy‑v6‑191017)
+  - [Other Motherboards](#other-motherboards)
 - [Flash Marlin Using SD Card](#flash-marlin-using-sd-card)
 - [Known Issues](#known-issues)
 - [Suggested Printing Workflow](#suggested-printing-workflow)
@@ -31,9 +32,16 @@ These `Configuration.h` and `Configuration_adv.h` files are designed for the Tro
 - 330x330x400 mm build volume with heated bed
 
 Standard Marlin features that have been enabled with these configuration files include:
-- Default feedrate: { 150, 150, 20, 40 } mm/s for { X, Y, Z, E }.
-- Default accelleration: { 500, 500, 100, 800 } mm/s/s for  { X, Y, Z, E }.
+- Default max feedrate: { 150, 150, 20, 40 } mm/s for { X, Y, Z, E }.
+- Default max accelleration: { 500, 500, 100, 800 } mm/s/s for  { X, Y, Z, E }.
 - The bed probe offset from the nozzle is set to for the standard location with the factory hotend/probe. If you have moved your probe you'll need to adjust to match your machine.
+
+### Other Motherboards
+Over the years Tronxy may have changed the motherboards in the X5SA Pro printers, with changes in physical hardware, bootloader, or firmware. From the boards listed on [tronxy.fandom.com](https://tronxy.fandom.com/wiki/TronXY_Mainboard_Documentation) other motherboard models versions may have been:
+- CXY-V6-191121
+- CXY-V10-20210309
+
+If you have a different Tronxy motherboard version in your X5SA Pro printer and you can get it working, please provide details.
 
 ---
 
@@ -46,13 +54,15 @@ You can now update Marlin directly from an SD card.
 3. Copy `update.cbd` to an SD card and insert it.
 4. Turn the printer on. You'll hear a series of beeps, then Marlin will begin the update.
 
+_(Some printers that have bootloader version 1.64 or newer, may need to use an update folder with .bin and/or .hex files instead of the chitu format update.cbd file.)_
+
 That's all—no need to open the case or use a programmer.
 
 ---
 
 ## Known Issues
 
-If you are using Marlin 2.1.3-beta3 or earlier, the required pull request [28059](//github.com/MarlinFirmware/Marlin/pull/28059) had not yet been merged. If you are not using newer code, you must manually override the Z‑stop pin in `pins_CHITU3D_V6.h` because the CXY‑V6‑191017 board in the X5SA Pro uses PG9 instead of PA14 through its 30-pin connector.
+If you are using Marlin 2.1.3-beta3 or earlier, the required pull request [28059](//github.com/MarlinFirmware/Marlin/pull/28059) had not yet been merged. The release version of 2.1.3 will not have this issue. If you are using 2.1.3-beta3 or older code, you must override the Z‑stop pin in `pins_CHITU3D_V6.h` because the CXY‑V6‑191017 board in the X5SA Pro uses PG9 instead of PA14 through its 30-pin connector. Due to the probe connector going through the 30-pin connector, the user will not be able to plug in the probe to the PA14 pin without modifying their printer.
 
 In `pins_CHITU3D_V6.h` replace:
 
